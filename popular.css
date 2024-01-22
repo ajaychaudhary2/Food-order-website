@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Pangolin&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	font-size: 1vmin;
+	background-color: #232323;
+	background-image: url("https://www.mamaliefde.nl/wp-content/uploads/2019/06/shutterstock_656103499.jpg");
+	background-size: cover;
+	background-position: center;
+	user-select: none;
+	font-family: "Pangolin", cursive;
+}
+.container {
+	--color-accent: #f1f11d;;
+	--color-white: #1a1414;
+	height: 95em;
+	width: calc(95em * 0.7);
+	background: black;
+	background-image: linear-gradient(
+			/*top*/ hsla(0, 0%, 0%, 0.05) 0%,
+			hsla(0, 0%, 0%, 0.05) 28%,
+			hsla(0, 0%, 100%, 0.05) 33%,
+			/*middle*/ hsla(0, 0%, 0%, 0.25) 33%,
+			hsla(0, 0%, 0%, 0.25) 38%,
+			hsla(0, 0%, 100%, 0.05) 62%,
+			hsla(0, 0%, 100%, 0.05) 67%,
+			/*bottom*/ hsla(0, 0%, 0%, 0.25) 67%,
+			hsla(0, 0%, 0%, 0.25) 72%,
+			hsla(0, 0%, 100%, 0.1) 100%
+		),
+		linear-gradient(to right, transparent 70%, rgba(255, 255, 255, 0.1)),
+		url("https://raw.github.com/mmoustafa/Chalkboard/master/img/bg.png");
+	box-shadow: 0.5em 0.5em 2em rgba(0, 0, 0, 0.8);
+	overflow: hidden;
+	position: relative;
+}
+
+div {
+	display: block;
+}
+
+.roof-clip {
+	position: relative;
+	height: 10%;
+	overflow: hidden;
+	box-shadow: 0 1em 1em 0.5em black;
+}
+.roof-container {
+	position: absolute;
+	width: 100%;
+	height: 10em;
+	perspective: 50em;
+	transform: scale(1.1) translateY(40%);
+	transform-origin: top center;
+}
+
+.roof {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+}
+
+.top {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: translateZ(-3.7em) translateY(-8.5em) rotateX(-135deg);
+}
+.front {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: translateZ(0px) rotateY(0deg);
+}
+
+.top,
+.front {
+	background: linear-gradient(
+		to right,
+		var(--color-accent) 50%,
+		var(--color-white) 0%
+	);
+	background-size: 10% 100%;
+	background-position: -8.25% center;
+}
+.roof-overlay {
+	--line-center: 48%;
+	--line-width: 1.25%;
+	--line-bleed: 5%;
+	--line-color: rgba(255, 255, 255, 0.3);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+			transparent 0,
+			transparent calc(var(--line-center) - var(--line-width) - var(--line-bleed)),
+			var(--line-color) calc(var(--line-center) - var(--line-width)),
+			var(--line-color) calc(var(--line-center) + var(--line-width)),
+			transparent calc(var(--line-center) + var(--line-width) + var(--line-bleed))
+		),
+		radial-gradient(circle, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 125%);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 4.2em;
+}
+.logo {
+	height: 10em;
+	opacity: 0.75;
+}
+.logo svg {
+	height: 150%;
+	margin-top: -12%;
+	filter: drop-shadow(0 0 0.5em black);
+}
+.logo svg > * {
+	stroke: white;
+	stroke-width: 12px;
+}
+.logo svg > .fill {
+	fill: #f1f11d;;
+}
+
+svg > * {
+	fill: none;
+	stroke:#f1f11d;;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 20px;
+}
+
+.ribbon {
+	margin: 1em 0 5em;
+	position: relative;
+	--border-size: 0.25em;
+	filter: drop-shadow(0 0 0.125em black);
+	transform-origin: center center;
+	transform: skew(-5deg);
+}
+.ribbon .center {
+	display: flex;
+	height: 4em;
+	padding: 0 2.5em;
+	background-color: #f1f11d;;
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(0, 0, 0, 0.5),
+		transparent 40%,
+		transparent 80%,
+		rgba(255, 255, 255, 0.2)
+	);
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	box-shadow: 0 0.5em 1em black;
+	border-radius: 0.25em;
+}
+
+.ribbon .center .title {
+	font-size: 3em;
+	margin-top: 0.125em;
+	color:black;
+	transform: skew(2deg);
+}
+
+.ribbon .left,
+.ribbon .right {
+	position: absolute;
+	height: 100%;
+	width: 10em;
+	background-color: #f1f11d;;
+	top: 0.8em;
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 40% 50%);
+}
+
+.ribbon .left {
+	left: -6em;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 50%, black);
+}
+.ribbon .right {
+	right: -6em;
+	transform: scaleX(-1);
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0.05) 50%,
+		black
+	);
+}
+
+.categories {
+	margin-top: 1em;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5.5em;
+	text-shadow: 0 0 1em black;
+}
+.category {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+.category .title {
+	text-transform: uppercase;
+	font-style: italic;
+	color: white;
+	font-size: 3em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.category .title svg {
+    color: #f1f11d;;
+	height: 1.5em;
+	transform: rotate(12deg);
+	filter: drop-shadow(0 0 0.1em black);
+}
+
+.category .items {
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-size: 2em;
+	gap: 0.5em;
+	width: 100%;
+}
+
+.category .items .item {
+	display: flex;
+	justify-content: space-between;
+}
+.category .items .item .name {
+	white-space: nowrap;
+	width: 9em;
+	overflow: hidden;
+    color: #ffffff;
+}
+.category .items .item .name::after {
+	content: "...................";
+	letter-spacing: 0.125em;
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	color: var(--color-white);
+	justify-content: center;
+	font-size: 2em;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--color-accent);
+	background-image: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.5),
+		transparent 40%,
+		transparent 60%,
+		rgba(255, 255, 255, 0.2)
+	);
+	padding: 0.5em;
+	box-shadow: 0 0 5em black;
+}
+
+.color-select {
+	display: flex;
+	gap: 0.5em;
+}
+.color-select-option {
+	width: 1.25em;
+	height: 1.25em;
+	border: 0.125em solid white;
+	border-radius: 0.25em;
+	cursor: pointer;
+}
+.backtext a{
+	color: #e9e914c9;
+    position: absolute;
+    left: 26.5rem;
+	font-family: 'Lugrasimo', cursive;
+    top: 3rem;
+    font-size: 21px;
+    letter-spacing: 2px;
+    text-decoration: none;
+	border-bottom: 2px solid;
+}
+.backtext2 a{color: #e9e914c9;
+    position: absolute;
+    right: 21.5rem;
+	font-family: 'Lugrasimo', cursive;
+    top: 3.5rem;
+    font-size: 21px;
+    letter-spacing: 1px;
+    text-decoration: none;
+	border-bottom: 2px solid;
+
+}
+a:hover{
+	border-bottom: 2px solid black;
+	color: #ffffffcc;
+	font-size: 24px;
+}

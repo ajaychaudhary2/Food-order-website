@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ordernow/Burger-Company</title>
+    <link rel="icon" type="image/x-icon" href="logoabout.png.png">
+    <link rel="stylesheet" href="order.css">
+    <script src="order.js"></script>
+</head>
+<body>
+    <h1><i class="fas fa-mug-hot"></i> Order Form</h1>
+    <table class="rwd-table">
+      <tr>
+        <th> Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+      <tr>
+        <td data-th="title">burger/cheese burger/egg burger/veggie burger</td>
+        <td data-th="price">USD 5 </td>
+        <td data-th="quantity"><input type="number"  min="0"   id="qty1" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      <tr>
+        <td data-th="title">Double cheese burger/spicy bean</td>
+        <td data-th="price">USD 7</td>
+        <td data-th="quantity"><input type="number"  min="0"   id="qty2" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      <tr>
+        <td data-th="title">margarita/4 chesses/hawaiian pizza</td>
+        <td data-th="price">USD 9</td>
+        <td data-th="quantity"><input type="number" min="0"  id="qty3" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      <tr>
+        <td data-th="title">tuna&onion/pepperoni/calzone</td>
+        <td data-th="price">USD 8</td>
+        <td data-th="quantity"><input type="number" min="0"  id="qty4" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      <tr>
+        <td data-th="title">Coconut burger        </td>
+        <td data-th="price">USD 30</td>
+        <td data-th="quantity"><input type="number"  min="0" id="qty5" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      
+      <tr>
+        <td data-th="title">Aalu Tikki Burger</td>
+        <td data-th="price">USD 20</td>
+        <td data-th="quantity"><input type="number"  min="0" id="qty6" value="0" placeholder="Enter Quantity"/></td>
+      </tr>
+      
+      
+      
+      
+    </table>
+    
+    <p>&larr; Enter The Quantities & Hit Total Cost To Get The Price. &rarr;</p>
+    <p>&larr; Click on Submit Order for placing your valuable order. &rarr;</p>
+
+    <button onclick="total()" class="button" style="padding-left:48px;margin-left:40px;">Total Cost</button>
+    <button onclick="submit()" class="button">Submit Order</button>
+    <div class="result" id="total_cost" style="margin-left:40px;">USD 0.00</div>
+
+
+</body>
+</html>
